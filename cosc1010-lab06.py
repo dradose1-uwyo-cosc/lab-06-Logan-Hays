@@ -1,9 +1,9 @@
-# Your Name Here
+# Logan Hays
 # UWYO COSC 1010
-# Submission Date
+# 10/17/24
 # Lab 06
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# Lab Section: 18 (usually in 13)
+# Sources, people worked with, help given to: Calvin Howard and Patrick Tully 
 # your
 # comments
 # here
@@ -85,11 +85,30 @@ print(len(random_string)) # Print out the size for reference
 
 # Output: each letter and its corresponding occurrence in alphabetical order
 
+letters = {}
+for letter in random_string:
+    if letter in letters:
+        letters[letter] += 1
+    else:
+        letters[letter] = 1
+
+letter_occurance = {}
+for key,value in sorted(letters.items()):
+    letter_occurance[key] = value
+print(letter_occurance)
 print("*"*75)
 # Output which letter occurred the most 
 
-most_occurred = ""
-least_occurred = ""
+most_occurred = "a"
+least_occurred = "a"
+
+for key in letters.keys():
+    if letters[most_occurred] < letters[key]:
+        most_occurred = key
+    elif letters[key] < letters[least_occurred]:
+        least_occurred = key
+
+
 
 print(f"The letter that occurred the most is {most_occurred}")
 print("*"*75)
@@ -98,3 +117,8 @@ print(f"The letter that occurred the most is {least_occurred}")
 print("*"*75)
 
 # Output what the percentage of the string each character is, again in alphabetical
+
+percentage = {}
+for key, value in letter_occurance.items():
+    percentage[key] = value / 2500 * 100
+print(percentage)
